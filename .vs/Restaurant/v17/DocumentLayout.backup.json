@@ -1,93 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\source\\repos\\Restaurant\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|c:\\users\\pc\\source\\repos\\restaurant\\restaurant\\data\\migrations\\20250728093808_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\data\\migrations\\20250728093808_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|c:\\users\\pc\\source\\repos\\restaurant\\restaurant\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|c:\\users\\pc\\source\\repos\\restaurant\\restaurant\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|c:\\users\\pc\\source\\repos\\restaurant\\restaurant\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FFCC9E8-502B-45D5-832F-1A35DC01344A}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250728093808_Init.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Data\\Migrations\\20250728093808_Init.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Data\\Migrations\\20250728093808_Init.cs",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Data\\Migrations\\20250728093808_Init.cs",
-              "RelativeToolTip": "Restaurant\\Data\\Migrations\\20250728093808_Init.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T09:38:08.622Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ScaffoldingReadMe.txt",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\ScaffoldingReadMe.txt",
-              "RelativeDocumentMoniker": "Restaurant\\ScaffoldingReadMe.txt",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\ScaffoldingReadMe.txt",
-              "RelativeToolTip": "Restaurant\\ScaffoldingReadMe.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-07-28T09:36:24.979Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\appsettings.json",
-              "RelativeDocumentMoniker": "Restaurant\\appsettings.json",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\appsettings.json",
-              "RelativeToolTip": "Restaurant\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-28T09:34:05.368Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Restaurant\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T09:32:12.206Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

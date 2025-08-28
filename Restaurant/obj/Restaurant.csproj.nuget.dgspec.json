@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Restaurant.csproj": {}
+    "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Restaurant.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Restaurant.csproj": {
+    "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Restaurant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Restaurant.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Restaurant.csproj",
         "projectName": "Restaurant",
-        "projectPath": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\Restaurant.csproj",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Restaurant.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\source\\repos\\Restaurant\\Restaurant\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[15.0.1, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"

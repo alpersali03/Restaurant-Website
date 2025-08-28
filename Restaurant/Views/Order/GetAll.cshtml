@@ -1,0 +1,23 @@
+﻿@using Restaurant.DTOs
+@using Restaurant.Data.Models
+@model List<OrderFormDto>
+
+<a asp-controller="Order" asp-action="GetAll" class="btn btn-primary mb-3">Go Back</a>
+
+<div class="row">
+    @foreach (var order in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">Order #: @order.Number</h5>
+                    @* <p class="card-text text-center">Description: @order.Description</p> *@
+                    <p class="card-text text-center">Products count: @order.OrderItems.Count()</p>
+
+                    <a asp-controller="Order" asp-action="Edit" asp-route-id="@order.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Order" asp-action="Delete" asp-route-id="@order.Id" class="btn btn-danger" onclick="myFunction()">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

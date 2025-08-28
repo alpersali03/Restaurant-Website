@@ -1,0 +1,25 @@
+﻿@using Restaurant.DTOs
+@model List<ReservationFormDto>
+
+<a asp-controller="Reservation" asp-action="Add" class="btn btn-primary mb-3">Add Reservation</a>
+
+<div class="row">
+    @foreach (var reservation in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Customer: @reservation.CustomerName</h5>
+                    <p class="card-text">Phone: @reservation.PhoneNumber</p>
+                    <p class="card-text">Date: @reservation.ReservationDate.ToShortDateString()</p>
+                    <p class="card-text">Guests: @reservation.GuestCount</p>
+                    <p class="card-text">Notes: @reservation.Notes</p>
+                    <p class="card-text">Status: <strong>@reservation.Status</strong></p>
+
+                    <a asp-controller="Reservation" asp-action="Edit" asp-route-id="@reservation.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-controller="Reservation" asp-action="Delete" asp-route-id="@reservation.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this reservation?');">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -17,71 +17,151 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Restaurant
 build_property.RootNamespace = Restaurant
-build_property.ProjectDir = C:\Users\PC\source\repos\Restaurant\Restaurant\
+build_property.ProjectDir = C:\Users\PC\Documents\GitHub\Restaurant-Website\Restaurant\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\PC\source\repos\Restaurant\Restaurant
+build_property.MSBuildProjectDirectory = C:\Users\PC\Documents\GitHub\Restaurant-Website\Restaurant
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/Home/Index.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Category/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Category/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Coupon/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cG9uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/Home/Privacy.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/Shared/Error.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Order/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Order/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Order/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Payment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Payment/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Payment/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxHZXRBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Product/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Product/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxHZXRBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Reservation/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Reservation/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Reservation/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Review/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3XEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Review/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Review/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3XEdldEFsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Shared/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/_ViewImports.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/_ViewStart.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PC/source/repos/Restaurant/Restaurant/Views/Shared/_Layout.cshtml]
+[C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-dfffm0vbnq

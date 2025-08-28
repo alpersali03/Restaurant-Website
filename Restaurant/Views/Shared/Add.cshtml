@@ -1,0 +1,42 @@
+﻿@using Restaurant.DTOs
+@using Restaurant.Data.Models
+@model CouponFormDto
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+
+       
+             <!-- <div class="form-group">
+                 <label asp-for="Percentage"></label>
+                 <input asp-for="Percentage" class="form-control" placeholder="Percentage: ">
+                 <span asp-validation-for="Percentage" class="small text-danger"></span>
+             </div> -->
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Percentage</label>
+
+                <select asp-for="Percentage" class="form-control"
+                        asp-items="@(Enum.GetValues(typeof(PercentageRate))
+                            .Cast<PercentageRate>()
+                            .Select(e => new SelectListItem { 
+                                Value = ((int)e).ToString(), 
+                                Text = ((int)e).ToString() 
+                            }))">
+                </select>
+
+            </div>
+            <div>
+                <label asp-for="Code"></label>
+                <input asp-for="Code" class="form-control" placeholder="Code: ">
+                <span asp-validation-for="Code" class="small text-danger"></span>
+            </div>
+            <input class="btn btn-primary mt-3" type="submit" value="Save" />
+        </form>
+
+
+
+    </div>
+</div>
