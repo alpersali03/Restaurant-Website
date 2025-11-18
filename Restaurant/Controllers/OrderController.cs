@@ -1,96 +1,94 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Data;
-using Restaurant.Data.Models;
 using Restaurant.DTOs;
+using Restaurant.Extensions;
+using Restaurant.Services;
 
 namespace Restaurant.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
-        private readonly ApplicationDbContext data;
+        //private readonly ApplicationDbContext data;
         private readonly IMapper _mapper;
+        private readonly IOrderService _orderService;
+        private readonly IProductService _productService;
 
-        public OrderController(ApplicationDbContext data, IMapper mapper)
+        public OrderController(ApplicationDbContext data, IMapper mapper, IOrderService orderService, IProductService productService)
         {
-            this.data = data;
+            //this.data = data;
             this._mapper = mapper;
+            this._orderService = orderService;
+            this._productService = productService;
         }
-        public IActionResult Index()
-        {
-            var orders = data.Orders.ToList();   
-            return View(orders);
-        }
+
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult AddProduct(int productId)
         {
-            OrderFormDto orderFormDto = new OrderFormDto();
-            
-            return View(orderFormDto);
+            var userId = User.GetId();
 
+            _orderService.Add(userId, productId);
+
+            return RedirectToAction("GetAll", "Menu"); // or your cart page
         }
+
         [HttpPost]
-        public IActionResult Add(OrderFormDto orderFormDto)
+        public IActionResult AddProduct(OrderFormDto orderFormDto)
         {
-            if(orderFormDto == null)
-            {
-                return NotFound();  
-            }
-            var order = new Order();
-            order.Number = orderFormDto.Number;
-            order.OrderItems = orderFormDto.OrderItems;
-            order.OrderTime = orderFormDto.OrderTime;
-            order.IdentityUser = orderFormDto.IdentityUser;
-            order.Status = orderFormDto.Status;
-            order.OrderItems = orderFormDto.OrderItems.ToList();
+            var userId = User.GetId(); // Extension method or however you're getting the user
 
-            this.data.Add(order);
-            data.SaveChanges();
-            return View();
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+
+            var orderDto = _orderService.Add(userId, orderFormDto.ProductId);
+
+            // Redirect to a details page, or pass to the view as needed
+            return RedirectToAction("Details", new { id = orderDto.Id });
         }
+
         [HttpGet]
         public IActionResult Getall()
         {
-            var orders = data.Orders.ToList(); 
+            var userId = User.GetId();
+            var orders = _orderService.GetOrdersInProgress(userId);
+            var ordersAmount = _orderService.GetTotalPrice(userId);
+            //var orders = data.Orders.ToList(); 
             var orderDto = _mapper.Map<List<OrderFormDto>>(orders);
+            if(orderDto == null)
+            {
+                return Empty;
+            }
             return View(orderDto);
         }
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var order = this.data.Orders.FirstOrDefault(o => o.Id == id);
-            if (order == null)
-            {
-                return NotFound();
-            }
+            var order = _orderService.GetById(id);
+            //var order = this.data.Orders.FirstOrDefault(o => o.Id == id);
+            //if (order == null)
+            //{
+            //    return NotFound();
+            //}
             var orderDto = _mapper.Map<OrderFormDto>(order);
             return View(orderDto);
         }
         [HttpPost]
-        public IActionResult Edit(OrderFormDto orderFormDto)
+        public IActionResult Edit(OrderDto orderDto)
         {
-            var existingOrder = this.data.Orders.FirstOrDefault(c => c.Id == orderFormDto.Id);
-            if (existingOrder == null)
-            {
-                return NotFound();
-            }
-            existingOrder.Number = orderFormDto.Number;
-            existingOrder.TotalAmount = orderFormDto.TotalAmount;  
-            existingOrder.IdentityUser = orderFormDto.IdentityUser;
-            existingOrder.OrderTime = orderFormDto.OrderTime;
+             _orderService.Edit(orderDto);
 
-            data.SaveChanges();
-            return RedirectToAction("GetAll");
+             return RedirectToAction("GetAll");
 
         }
-        [HttpPost]
-        public IActionResult Cancell(int id)
-        {
-            var deletingOrder = this.data.Orders.FirstOrDefault(x => x.Id == id);
-            this.data.Remove(deletingOrder);
-            data.SaveChanges();
-            return RedirectToAction("getall");
+        //[HttpPost]
+        //public IActionResult Delete(int id)
+        //{
+        //    //_orderService.Delete(id);
+        //    //return RedirectToAction("getall");
 
-        }
+        //}
+       
     }
 }
