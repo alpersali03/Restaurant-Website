@@ -95,7 +95,6 @@ namespace Restaurant.Controllers
 
             existingPayment.PaidAt = payment.PaidAt;
             existingPayment.Amount = payment.Amount;
-            existingPayment.Method = payment.Method;
             existingPayment.OrderId = payment.OrderId; 
 
             this.data.SaveChanges();
@@ -106,7 +105,7 @@ namespace Restaurant.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Cancell(int id)
+        public IActionResult Delete(int id)
         {
             var cancellingPayment = this.data.Payments.FirstOrDefault(x => x.Id == id);
             if (cancellingPayment == null)
