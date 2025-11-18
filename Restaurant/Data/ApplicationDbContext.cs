@@ -19,6 +19,8 @@ namespace Restaurant.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -34,29 +36,29 @@ namespace Restaurant.Data
               
 
             builder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Pizza", IconUrl = "https://cdn-icons-png.flaticon.com/512/1404/1404945.png" },
-                new Category { Id = 2, Name = "Desserts", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046784.png" },
-                new Category { Id = 3, Name = "Drinks", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046786.png" },
-                new Category { Id = 4, Name = "Salads", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046795.png" },
-                new Category { Id = 5, Name = "Pasta", IconUrl = "https://cdn-icons-png.flaticon.com/512/1404/1404948.png" },
-                new Category { Id = 6, Name = "Soups", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046803.png" },
-                new Category { Id = 7, Name = "Snacks", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046790.png" },
-                new Category { Id = 8, Name = "Vegetarian", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046841.png" },
-                new Category { Id = 9, Name = "Breakfast", IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046779.png" },
-                new Category { Id = 10, Name = "Burgers", IconUrl = "https://cdn-icons-png.flaticon.com/512/1404/1404942.png" }
+				new Category { Id = 1, Name = "Pizza", IconUrl = "https://uk.ooni.com/cdn/shop/articles/20220211142645-margherita-9920_e41233d5-dcec-461c-b07e-03245f031dfe.jpg?v=1737105431&width=1080" },
+				new Category { Id = 2, Name = "Desserts", IconUrl = "https://www.brit.co/media-library/3-ingredient-dessert-recipes.jpg?id=23305200&width=400&height=493" },
+                new Category { Id = 3, Name = "Drinks", IconUrl = "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-802667754.jpg?c=original" },
+                new Category { Id = 4, Name = "Salads", IconUrl = "https://cdn.loveandlemons.com/wp-content/uploads/2019/07/salad.jpg" },
+                new Category { Id = 5, Name = "Pasta", IconUrl = "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2023-01-Caramelized-Tomato-Paste-Pasta%2F06-CARAMELIZED-TOMATO-PASTE-PASTA-039" },
+                new Category { Id = 6, Name = "Soups", IconUrl = "https://www.seriouseats.com/thmb/DvSDZoMw8WSOQFAMgf3L2wlfY9Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/053123_TomatoSoup-MPPSoupsAndStews-Morgan-Hunt-Glaze-f59a081d7efb4625a75a1a907a6b1cbf.jpg" },
+                new Category { Id = 7, Name = "Snacks", IconUrl = "https://www.rewardsnetwork.com/wp-content/uploads/2015/09/Appetizer_Main1.jpg" },
+                new Category { Id = 8, Name = "Vegetarian", IconUrl = "https://mayavegetarian.com.au/wp-content/uploads/2023/05/vegetarian-friendly-restaurants.jpeg" },
+                new Category { Id = 9, Name = "Breakfast", IconUrl = "https://img.delicious.com.au/zwzzSNao/del/2018/08/chilli-labneh-eggs-87071-2.jpg" },
+                new Category { Id = 10, Name = "Burgers", IconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc2ZGUC_fUddSOkKcQOx390f_ZvEuHQDnDzw&s" }
             );
 
             builder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Margherita", Description = "Classic tomato, mozzarella, and basil pizza.", Price = 49.90M, IsAvailable = true, CategoryId = 1, ImageUrl = "https://source.unsplash.com/600x400/?margherita,pizza"}, 
-                new Product { Id = 2, Name = "Nutella Pizza", Description = "Sweet pizza topped with Nutella and fruits.", Price = 59.90M, IsAvailable = true, CategoryId = 2, ImageUrl = "https://source.unsplash.com/600x400/?nutella,dessert"}, 
-                new Product { Id = 3, Name = "Coca-Cola", Description = "330ml cold soft drink.", Price = 9.90M, IsAvailable = true, CategoryId = 3, ImageUrl = "https://source.unsplash.com/600x400/?coca-cola,drink"},  // DRINKS5
-                new Product { Id = 4, Name = "Caesar Salad", Description = "Chicken, croutons, and parmesan.", Price = 38.50M, IsAvailable = true, CategoryId = 4, ImageUrl = "https://source.unsplash.com/600x400/?caesar,salad"},  
-                new Product { Id = 5, Name = "Penne Arrabbiata", Description = "Spicy tomato pasta.", Price = 42.00M, IsAvailable = true, CategoryId = 5, ImageUrl = "https://source.unsplash.com/600x400/?penne,pasta"},  // SUMMER15
-                new Product { Id = 6, Name = "Lentil Soup", Description = "Traditional Turkish red lentil soup.", Price = 19.00M, IsAvailable = true, CategoryId = 6, ImageUrl = "https://source.unsplash.com/600x400/?lentil,soup" },  // RETRY10
-                new Product { Id = 7, Name = "Mozzarella Sticks", Description = "Deep-fried mozzarella cheese.", Price = 27.00M, IsAvailable = true, CategoryId = 7, ImageUrl = "https://source.unsplash.com/600x400/?mozzarella,snacks"},  // RETRY10
-                new Product { Id = 8, Name = "Vegetable Casserole", Description = "Oven-roasted seasonal vegetables.", Price = 35.00M, IsAvailable = true, CategoryId = 8, ImageUrl = "https://source.unsplash.com/600x400/?vegetable,meal"},  // VEGAN25
-                new Product { Id = 9, Name = "Breakfast Platter", Description = "Traditional Turkish breakfast assortment.", Price = 69.00M, IsAvailable = true, CategoryId = 9, ImageUrl = "https://source.unsplash.com/600x400/?breakfast,food"}, // BREAKFAST30
-                new Product { Id = 10, Name = "Cheeseburger", Description = "Beef patty with cheddar cheese.", Price = 48.00M, IsAvailable = true, CategoryId = 10, ImageUrl = "https://source.unsplash.com/600x400/?cheeseburger"}   // BURGER50
+                new Product { Id = 1, Name = "Margherita", Description = "Classic tomato, mozzarella, and basil pizza.", Price = 49.90M, IsAvailable = true, CategoryId = 1, ImageUrl = "https://au.ooni.com/cdn/shop/articles/20220211142645-margherita-9920.jpg?v=1737368217&width=1080" }, 
+                new Product { Id = 2, Name = "Nutella Pizza", Description = "Sweet pizza topped with Nutella and fruits.", Price = 59.90M, IsAvailable = true, CategoryId = 2, ImageUrl = "https://img.kidspot.com.au/XiAtfaQM/w1200-h1200-cfill-q80/kk/2015/03/nutella-pizza-613255-1.jpg" }, 
+                new Product { Id = 3, Name = "Coca-Cola", Description = "330ml cold soft drink.", Price = 9.90M, IsAvailable = true, CategoryId = 3, ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0UPl7dUxzEE3cPX_reTIxFPHAlH3bybJzpw&s" },  // DRINKS5
+                new Product { Id = 4, Name = "Caesar Salad", Description = "Chicken, croutons, and parmesan.", Price = 38.50M, IsAvailable = true, CategoryId = 4, ImageUrl = "https://cdn.loveandlemons.com/wp-content/uploads/2024/12/caesar-salad.jpg" },  
+                new Product { Id = 5, Name = "Penne Arrabbiata", Description = "Spicy tomato pasta.", Price = 42.00M, IsAvailable = true, CategoryId = 5, ImageUrl = "https://tastesbetterfromscratch.com/wp-content/uploads/2020/03/Penne-Arrabbiata-1-2.jpg" },  // SUMMER15
+                new Product { Id = 6, Name = "Lentil Soup", Description = "Traditional Turkish red lentil soup.", Price = 19.00M, IsAvailable = true, CategoryId = 6, ImageUrl = "https://www.allrecipes.com/thmb/mVE0x7bzey6DPJFBBXDoI_rBrkw=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/13978-lentil-soup-DDMFS-4x3-edfa47fc6b234e6b8add24d44c036d43.jpg" },  // RETRY10
+                new Product { Id = 7, Name = "Mozzarella Sticks", Description = "Deep-fried mozzarella cheese.", Price = 27.00M, IsAvailable = true, CategoryId = 7, ImageUrl = "https://easyweeknightrecipes.com/wp-content/uploads/2024/04/Mozzarella-Sticks_0013.jpg" },  // RETRY10
+                new Product { Id = 8, Name = "Vegetable Casserole", Description = "Oven-roasted seasonal vegetables.", Price = 35.00M, IsAvailable = true, CategoryId = 8, ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2iaZmOJeWFbNHXjZrdFA5i_rDG-3R-gSsxg&s" },  // VEGAN25
+                new Product { Id = 9, Name = "Breakfast Platter", Description = "Traditional Turkish breakfast assortment.", Price = 69.00M, IsAvailable = true, CategoryId = 9, ImageUrl = "https://catering.soulorigin.com.au/cdn/shop/files/240617_1.png?v=1729728953" }, // BREAKFAST30
+                new Product { Id = 10, Name = "Cheeseburger", Description = "Beef patty with cheddar cheese.", Price = 48.00M, IsAvailable = true, CategoryId = 10, ImageUrl = "https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipemediafiles/recipe%20images%20and%20files/retail/desktop%20(600x600)/2024.march/2024_retail_double-stack-cheeseburger_600x600.jpg?ext=.jpg" }   // BURGER50
             );
 
 
