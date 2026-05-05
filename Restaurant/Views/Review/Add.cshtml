@@ -1,44 +1,58 @@
-﻿@using Restaurant.DTOs
-@using Restaurant.Data.Models
-@model ReviewFormDto
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model Restaurant.DTOs.ReviewFormDto
 
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+@{
+    ViewData["Title"] = "Add Review";
+}
 
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
+<section class="page-panel admin-form-shell">
+    <div class="page-header">
+        <div>
+            <span class="eyebrow">Admin • Reviews</span>
+            <h1>Add review</h1>
+            <p>Create a product review entry with customer name, rating, and comment.</p>
+        </div>
+        <a asp-controller="Review" asp-action="GetAll" class="btn btn-outline-dark">Back to reviews</a>
+    </div>
+
+    <form method="post" class="admin-form">
+        @Html.AntiForgeryToken()
+
+        <div class="admin-form-grid">
+            <div class="form-field">
                 <label asp-for="CustomerName"></label>
-                <input asp-for="CustomerName" class="form-control" placeholder="Enter your name:" />
+                <input asp-for="CustomerName" class="form-control" placeholder="Emma" />
                 <span asp-validation-for="CustomerName" class="text-danger small"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Comment"></label>
-                <input asp-for="Comment" class="form-control" placeholder="Thoughts:" />
-                <span asp-validation-for="Comment" class="text-danger small"></span>
-            </div>
-
-            <div class="form-group">
+            <div class="form-field">
                 <label asp-for="Rating"></label>
-                <input asp-for="Rating" class="form-control" placeholder="Rating (1-5):" />
+                <input asp-for="Rating" class="form-control" type="number" min="1" max="5" placeholder="5" />
                 <span asp-validation-for="Rating" class="text-danger small"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-field form-field-full">
+                <label asp-for="Comment"></label>
+                <textarea asp-for="Comment" class="form-control" placeholder="Short guest feedback."></textarea>
+                <span asp-validation-for="Comment" class="text-danger small"></span>
+            </div>
+
+            <div class="form-field">
                 <label asp-for="CreatedAt"></label>
-                <input asp-for="CreatedAt" class="form-control" placeholder="Enter today's date:" />
+                <input asp-for="CreatedAt" asp-format="{0:yyyy-MM-ddTHH:mm}" class="form-control" type="datetime-local" />
                 <span asp-validation-for="CreatedAt" class="text-danger small"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-field">
                 <label asp-for="ProductId"></label>
-                <select asp-for="ProductId" asp-items="@(new SelectList(Model.Products, "Id", "Name"))" class="form-control"></select>
-                <span asp-validation-for="ProductId" class="text-danger"></span>
+                <select asp-for="ProductId" asp-items="@(new SelectList(Model.Products, "Id", "Name"))" class="form-select"></select>
+                <span asp-validation-for="ProductId" class="text-danger small"></span>
             </div>
+        </div>
 
-
-            <input class="btn btn-primary mt-3" type="submit" value="Save" />
-        </form>
-    </div>
-</div>
+        <div class="page-actions">
+            <button class="btn btn-dark" type="submit">Save review</button>
+            <a asp-controller="Review" asp-action="GetAll" class="btn btn-outline-dark">Cancel</a>
+        </div>
+    </form>
+</section>

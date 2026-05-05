@@ -1,0 +1,49 @@
+﻿@using Restaurant.Data.Models
+@model Order
+
+
+@if (Model == null)
+{
+	<h1 class="text-center">
+		Your cart is empty!
+	</h1>
+}
+else
+{
+	<h2>Order #@Model.Number</h2>
+
+	<p>Status: @Model.Status</p>
+	<p>Date: @Model.OrderTime.ToShortDateString()</p>
+	<p>Total: @Model.TotalAmount.ToString("C")</p>
+
+	<h6>Items:</h6>
+
+	<ul>
+
+		@foreach (var item in Model.OrderItems)
+		{
+			<ul class="list-group">
+				<li class="list-group-item d-flex align-items-center justify-content-between">
+					<div class="d-flex align-items-center">
+						<img src="@item.Product?.ImageUrl"
+							 width="50"
+							 class="me-3 img-thumbnail"
+							 alt="@item.Product?.Name" />
+
+						<div>
+							<div class="fw-semibold">@item.Product?.Name</div>
+							<small class="text-muted">Qty: @item.Quantity</small>
+						</div>
+					</div>
+
+					<div class="fw-bold">
+						@(@item.Quantity * item.Product?.Price)
+					</div>
+				</li>
+			</ul>
+
+		}
+	</ul>
+
+}
+

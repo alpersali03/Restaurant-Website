@@ -1,0 +1,35 @@
+@using Restaurant.DTOs
+@model PaymentDto
+
+<h2>Payment Details</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">Order</dt>
+    <dd class="col-sm-9">@Model.OrderId</dd>
+
+    <dt class="col-sm-3">Amount</dt>
+    <dd class="col-sm-9">@Model.Amount.ToString("C")</dd>
+
+    <dt class="col-sm-3">Currency</dt>
+    <dd class="col-sm-9">@Model.Currency</dd>
+
+    <dt class="col-sm-3">Provider</dt>
+    <dd class="col-sm-9">@Model.Provider</dd>
+
+    <dt class="col-sm-3">Status</dt>
+    <dd class="col-sm-9">@Model.Status</dd>
+
+    <dt class="col-sm-3">Session Id</dt>
+    <dd class="col-sm-9">@Model.ProviderSessionId</dd>
+
+    <dt class="col-sm-3">Provider Payment Id</dt>
+    <dd class="col-sm-9">@Model.ProviderPaymentId</dd>
+
+    <dt class="col-sm-3">Created</dt>
+    <dd class="col-sm-9">@Model.CreatedAt.ToLocalTime()</dd>
+
+    <dt class="col-sm-3">Completed</dt>
+    <dd class="col-sm-9">@(Model.CompletedAt.HasValue ? Model.CompletedAt.Value.ToLocalTime().ToString("g") : "Pending")</dd>
+</dl>
+
+<a asp-controller="Payment" asp-action="GetAll" class="btn btn-secondary">Back</a>

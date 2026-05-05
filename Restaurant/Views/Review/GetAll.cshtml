@@ -1,24 +1,48 @@
-﻿@using Restaurant.DTOs
-@model List<ReviewFormDto>
+@model List<Restaurant.DTOs.ReviewFormDto>
 
-<a asp-controller="Review" asp-action="Add" class="btn btn-primary mb-3">Add Review</a>
+@{
+    ViewData["Title"] = "Reviews";
+}
 
-<div class="row">
-    @foreach (var review in Model)
-    {
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Rating: @review.Rating ⭐</h5>
-                    <p class="card-text">Customer: @review.CustomerName</p>
-                    <p class="card-text">Comment: @review.Comment</p>
-                    <p class="card-text">Created: @review.CreatedAt.ToShortDateString()</p>
-                    <p class="card-text">Product ID: @review.ProductId</p>
-
-                    <a asp-controller="Review" asp-action="Edit" asp-route-id="@review.Id" class="btn btn-warning">Edit</a>
-                    <a asp-controller="Review" asp-action="Delete" asp-route-id="@review.Id" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this review?');">Delete</a>
-                </div>
-            </div>
+<section class="page-panel">
+    <div class="admin-toolbar">
+        <div>
+            <span class="eyebrow">Admin • Reviews</span>
+            <h1 class="mb-2">Manage guest reviews</h1>
+            <p class="table-note">Moderate product feedback and keep review copy organized.</p>
         </div>
-    }
-</div>
+        <div class="page-actions">
+            <a asp-controller="Review" asp-action="Add" class="btn btn-dark">Add review</a>
+        </div>
+    </div>
+
+    <div class="admin-grid">
+        @foreach (var review in Model)
+        {
+            <article class="admin-card">
+                <div class="admin-card-body">
+                    <div class="admin-card-topline">
+                        <span class="metric-pill">@review.Rating/5</span>
+                        <span class="metric-label">@review.CreatedAt.ToString("dd MMM yyyy")</span>
+                    </div>
+
+                    <div>
+                        <h3>@review.CustomerName</h3>
+                        <p>@review.ProductName</p>
+                    </div>
+
+                    <p>@review.Comment</p>
+
+                    <div class="admin-card-actions">
+                        <a asp-controller="Review" asp-action="Edit" asp-route-id="@review.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <form asp-controller="Review" asp-action="Delete" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@review.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</section>
