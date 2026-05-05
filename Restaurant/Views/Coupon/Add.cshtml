@@ -1,27 +1,26 @@
 @model Restaurant.DTOs.CouponFormDto
 
 @{
-    ViewData["Title"] = "Edit Coupon";
+    ViewData["Title"] = "Add Coupon";
 }
 
 <section class="page-panel admin-form-shell">
     <div class="page-header">
         <div>
             <span class="eyebrow">Admin • Coupons</span>
-            <h1>Edit coupon</h1>
-            <p>Adjust the code, discount percentage, and active dates.</p>
+            <h1>Add coupon</h1>
+            <p>Create a new offer with a code, discount level, and validity window.</p>
         </div>
         <a asp-controller="Coupon" asp-action="GetAll" class="btn btn-outline-dark">Back to coupons</a>
     </div>
 
     <form method="post" class="admin-form">
         @Html.AntiForgeryToken()
-        <input asp-for="Id" type="hidden" />
 
         <div class="admin-form-grid">
             <div class="form-field">
                 <label asp-for="Code"></label>
-                <input asp-for="Code" class="form-control" />
+                <input asp-for="Code" class="form-control" placeholder="WELCOME10" />
                 <span asp-validation-for="Code" class="small text-danger"></span>
             </div>
 
@@ -50,7 +49,7 @@
         </div>
 
         <div class="page-actions">
-            <button class="btn btn-dark" type="submit">Save changes</button>
+            <button class="btn btn-dark" type="submit">Save coupon</button>
             <a asp-controller="Coupon" asp-action="GetAll" class="btn btn-outline-dark">Cancel</a>
         </div>
     </form>

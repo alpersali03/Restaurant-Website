@@ -1,33 +1,56 @@
-﻿@using Restaurant.DTOs
-@using Restaurant.Data.Models
-@model List<ProductFormDto>
+@model List<Restaurant.DTOs.ProductDto>
 
-<a asp-controller="Product" asp-action="GetAll" class="btn btn-primary mb-3 top-0 left-0" type="submit">GoBack</a>
-@*  <form asp-controller="Category" asp-action="Search" method="get">
- 	<div>
- 		<input type="text" name="keyword" class="form-control" placeholder="Enter a searching keyword" />
- 		<button class="btn btn-primary mt-3" type="submit"> Search</button>
- 	</div>
- </form> *@
+@{
+    ViewData["Title"] = "Products";
+}
 
+<section class="page-panel">
+    <div class="admin-toolbar">
+        <div>
+            <span class="eyebrow">Admin • Products</span>
+            <h1 class="mb-2">Manage products</h1>
+            <p class="table-note">Edit pricing, imagery, category placement, and availability from one screen.</p>
+        </div>
+        <div class="page-actions">
+            <a asp-controller="Menu" asp-action="GetAll" class="btn btn-outline-dark">Customer menu</a>
+            <a asp-controller="Product" asp-action="Add" class="btn btn-dark">Add product</a>
+        </div>
+    </div>
 
-<div class="row">
-	@foreach (var product in Model)
-	{
-		<div class="col-md-4">
-			<div class="card mb-3">
-				<div class="card-body text-center">
-					<h5 class="card-title text-center"> @product.Name</h5>
-					<img src=@product.ImageUrl class="img-fluid" alt="Cinque Terre">
-					<p class="card-title text-center"> Product description: @product.Description</p>
-					<p class="card-title text-center"> Product category: @product.Categories</p>
-					<p class="card-title text-center"> Product price: @product.Price</p>
+    <div class="admin-grid">
+        @foreach (var product in Model)
+        {
+            <article class="admin-card">
+                <img src="@product.ImageUrl" class="admin-card-image" alt="@product.Name" />
+                <div class="admin-card-body">
+                    <div class="admin-card-topline">
+                        <span class="menu-badge">@(product.Category?.Name ?? "Uncategorized")</span>
+                        <span class="metric-pill @(product.IsAvailable ? "status-success" : "status-muted")">
+                            @(product.IsAvailable ? "Available" : "Hidden")
+                        </span>
+                    </div>
 
-					<a asp-controller="Category" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
-					@*<a asp-controller="Product" asp-action="ProductsByCategory" asp-route-categoryId="@product.Id" class="btn btn-primary">Products by category</a>*@
-					<a asp-controller="Category" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger" onclick="myFunction() ">Delete</a>
-				</div>
-			</div>
-		</div>
-	}
-</div>
+                    <div>
+                        <h3>@product.Name</h3>
+                        <p>@product.Description</p>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Current price</span>
+                        <strong class="menu-price">@product.Price.ToString("C")</strong>
+                    </div>
+
+                    <div class="admin-card-actions">
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline-dark btn-sm">Preview</a>
+                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <form asp-controller="Product" asp-action="Delete" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@product.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</section>

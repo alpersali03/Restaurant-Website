@@ -1,25 +1,60 @@
-﻿@using Restaurant.DTOs
-@model List<ReservationFormDto>
+@model List<Restaurant.DTOs.ReservationFormDto>
 
-<a asp-controller="Reservation" asp-action="Add" class="btn btn-primary mb-3">Add Reservation</a>
+@{
+    ViewData["Title"] = "Reservations";
+}
 
-<div class="row">
-    @foreach (var reservation in Model)
-    {
-        <div class="col-md-4">
-            <div class="card mb-3 shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Customer: @reservation.CustomerName</h5>
-                    <p class="card-text">Phone: @reservation.PhoneNumber</p>
-                    <p class="card-text">Date: @reservation.ReservationDate.ToShortDateString()</p>
-                    <p class="card-text">Guests: @reservation.GuestCount</p>
-                    <p class="card-text">Notes: @reservation.Notes</p>
-                    <p class="card-text">Status: <strong>@reservation.Status</strong></p>
-
-                    <a asp-controller="Reservation" asp-action="Edit" asp-route-id="@reservation.Id" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-controller="Reservation" asp-action="Delete" asp-route-id="@reservation.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this reservation?');">Delete</a>
-                </div>
-            </div>
+<section class="page-panel">
+    <div class="admin-toolbar">
+        <div>
+            <span class="eyebrow">Admin • Reservations</span>
+            <h1 class="mb-2">Manage reservations</h1>
+            <p class="table-note">See guest counts, booking times, and status at a glance.</p>
         </div>
-    }
-</div>
+        <div class="page-actions">
+            <a asp-controller="Reservation" asp-action="Add" class="btn btn-dark">Add reservation</a>
+        </div>
+    </div>
+
+    <div class="admin-grid">
+        @foreach (var reservation in Model)
+        {
+            var statusClass = reservation.Status.ToString() switch
+            {
+                "Confirmed" => "status-success",
+                "Pending" => "status-warning",
+                _ => "status-muted"
+            };
+
+            <article class="admin-card">
+                <div class="admin-card-body">
+                    <div class="admin-card-topline">
+                        <span class="metric-pill @statusClass">@reservation.Status</span>
+                        <span class="metric-label">@reservation.ReservationDate.ToString("dd MMM yyyy HH:mm")</span>
+                    </div>
+
+                    <div>
+                        <h3>@reservation.CustomerName</h3>
+                        <p>@reservation.PhoneNumber</p>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Guests</span>
+                        <strong>@reservation.GuestCount</strong>
+                    </div>
+
+                    <p>@(string.IsNullOrWhiteSpace(reservation.Notes) ? "No special notes." : reservation.Notes)</p>
+
+                    <div class="admin-card-actions">
+                        <a asp-controller="Reservation" asp-action="Edit" asp-route-id="@reservation.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <form asp-controller="Reservation" asp-action="Delete" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@reservation.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</section>

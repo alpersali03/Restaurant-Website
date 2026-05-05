@@ -1,0 +1,66 @@
+@model List<Restaurant.DTOs.CouponFormDto>
+
+@{
+    ViewData["Title"] = "Coupons";
+}
+
+<section class="page-panel">
+    <div class="admin-toolbar">
+        <div>
+            <span class="eyebrow">Admin • Coupons</span>
+            <h1 class="mb-2">Manage offers</h1>
+            <p class="table-note">Track coupon codes, discount levels, and active date ranges.</p>
+        </div>
+        <div class="page-actions">
+            <a asp-controller="Coupon" asp-action="Add" class="btn btn-dark">Add coupon</a>
+        </div>
+    </div>
+
+    <div class="table-shell">
+        <div class="table-responsive">
+            <table class="table admin-table align-middle">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Discount</th>
+                        <th>Starts</th>
+                        <th>Ends</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var coupon in Model)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@coupon.Code</strong>
+                            </td>
+                            <td>
+                                <span class="metric-pill">@coupon.Percentage%</span>
+                            </td>
+                            <td>@coupon.StartDate.ToString("dd MMM yyyy")</td>
+                            <td>@coupon.EndDate.ToString("dd MMM yyyy")</td>
+                            <td class="text-end">
+                                <div class="d-inline-flex gap-2">
+                                    <a class="btn btn-warning btn-sm"
+                                       asp-controller="Coupon"
+                                       asp-action="Edit"
+                                       asp-route-id="@coupon.Id">Edit</a>
+
+                                    <form asp-controller="Coupon"
+                                          asp-action="Delete"
+                                          method="post"
+                                          class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@coupon.Id" />
+                                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
