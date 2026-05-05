@@ -1,23 +1,85 @@
-﻿@using Restaurant.DTOs
-@using Restaurant.Data.Models
-@model List<OrderFormDto>
+@model List<Restaurant.DTOs.OrderFormDto>
 
-<a asp-controller="Order" asp-action="GetAll" class="btn btn-primary mb-3">Go Back</a>
+@{
+    ViewData["Title"] = "Cart";
+}
 
-<div class="row">
-    @foreach (var order in Model)
-    {
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-center">Order #: @order.Number</h5>
-                    @* <p class="card-text text-center">Description: @order.Description</p> *@
-                    <p class="card-text text-center">Products count: @order.OrderItems.Count()</p>
-
-                    <a asp-controller="Order" asp-action="Edit" asp-route-id="@order.Id" class="btn btn-warning">Edit</a>
-                    <a asp-controller="Order" asp-action="Delete" asp-route-id="@order.Id" class="btn btn-danger" onclick="myFunction()">Delete</a>
-                </div>
-            </div>
+<section class="page-panel">
+    <div class="page-header">
+        <div>
+            <span class="eyebrow">Cart</span>
+            <h1>Review current orders</h1>
+            <p>Adjust quantities, confirm totals, and continue to checkout when you are ready.</p>
         </div>
+        <div class="page-actions">
+            <a asp-controller="Menu" asp-action="GetAll" class="btn btn-outline-dark">Continue shopping</a>
+        </div>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <p class="text-muted mb-0">No orders found.</p>
     }
-</div>
+    else
+    {
+        foreach (var order in Model)
+        {
+            <article class="order-card">
+                <div class="order-summary">
+                    <div>
+                        <h2 class="h4 mb-1">Order #@order.Number</h2>
+                        <p class="text-muted mb-0">@order.OrderItems.Count item(s) in this cart</p>
+                    </div>
+                    <strong class="menu-price">
+                        @order.OrderItems.Sum(i => (i.Product?.Price ?? 0m) * i.Quantity).ToString("C")
+                    </strong>
+                </div>
+
+                <div class="table-responsive order-table">
+                    <table class="table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                                <th>Adjust</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in order.OrderItems)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="@item.Product?.ImageUrl" alt="@item.Product?.Name" />
+                                            <div>
+                                                <strong>@item.Product?.Name</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>@((item.Product?.Price ?? 0m).ToString("C"))</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@(((item.Product?.Price ?? 0m) * item.Quantity).ToString("C"))</td>
+                                    <td>
+                                        <form asp-controller="OrderItem" asp-action="UpdateQuantity" method="post" class="d-inline-flex gap-2">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="orderItemId" value="@item.Id" />
+                                            <input type="hidden" name="orderId" value="@order.Id" />
+                                            <button type="submit" name="change" value="increase" class="btn btn-sm btn-dark">+</button>
+                                            <button type="submit" name="change" value="decrease" class="btn btn-sm btn-outline-dark">-</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <form asp-controller="OrderCart" asp-action="Checkout" asp-route-id="@order.Id" method="get">
+                    <button type="submit" class="btn btn-dark">Proceed to checkout</button>
+                </form>
+            </article>
+        }
+    }
+</section>

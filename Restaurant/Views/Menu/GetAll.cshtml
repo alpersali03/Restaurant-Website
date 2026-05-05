@@ -1,25 +1,44 @@
-﻿@using Restaurant.DTOs
-@using Restaurant.Data.Models
-@model List<ProductDto>
+@model List<Restaurant.DTOs.ProductDto>
 
-<a asp-controller="Product" asp-action="GetAll" class="btn btn-primary mb-3 top-0 left-0">Go Back</a>
+@{
+    ViewData["Title"] = "Menu";
+}
 
-<div class="row">
-    @foreach (var product in Model)
-    {
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-center">@product.Name</h5>
-                    <img src="@product.ImageUrl" class="img-fluid" alt="Image of @product.Name">
-                    <p class="card-text">Product description: @product.Description</p>
-                    <p class="card-text">Product category: @product.Category.Name</p>
-                    <p class="card-text">Product price: @product.Price</p>
-
-                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-warning">Details</a>
-                    <a asp-controller="Order" asp-action="AddProduct" asp-route-productId="@product.Id" class="btn btn-success">Add</a>
-                </div>
-            </div>
+<section class="page-panel">
+    <div class="page-header">
+        <div>
+            <span class="eyebrow">Menu</span>
+            <h1>Browse available dishes</h1>
+            <p>Choose from fresh pizzas, pasta, salads, burgers, desserts, and drinks.</p>
         </div>
-    }
-</div>
+        <div class="page-actions">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-dark">Home</a>
+            <a asp-controller="Order" asp-action="GetAll" class="btn btn-dark">Open cart</a>
+        </div>
+    </div>
+
+    <div class="product-grid">
+        @foreach (var product in Model)
+        {
+            <article class="menu-card">
+                <img src="@product.ImageUrl" class="menu-card-image" alt="Image of @product.Name">
+                <div class="menu-card-body">
+                    <div class="menu-card-topline">
+                        <span class="menu-badge">@(product.Category?.Name ?? "House special")</span>
+                        <span class="menu-price">@product.Price.ToString("C")</span>
+                    </div>
+                    <h3>@product.Name</h3>
+                    <p>@product.Description</p>
+                    <div class="menu-card-actions">
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline-dark">Details</a>
+                        <form asp-controller="Order" asp-action="AddProduct" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="productId" value="@product.Id" />
+                            <button type="submit" class="btn btn-dark">Add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</section>

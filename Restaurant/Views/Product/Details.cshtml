@@ -1,0 +1,44 @@
+@model Restaurant.Data.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+@if (Model == null)
+{
+    <section class="page-panel">
+        <p class="text-muted mb-0">Product not found.</p>
+    </section>
+}
+else
+{
+    <section class="detail-panel">
+        <img src="@Model.ImageUrl" class="detail-image" alt="Image of @Model.Name" />
+
+        <div class="detail-copy">
+            <div class="detail-topline">
+                <div>
+                    <span class="eyebrow">Product details</span>
+                    <h1>@Model.Name</h1>
+                </div>
+                <span class="menu-price">@Model.Price.ToString("C")</span>
+            </div>
+
+            <div class="detail-meta">
+                <span class="menu-badge">@(Model.Category?.Name ?? "Uncategorized")</span>
+                <span class="status-badge">@(Model.IsAvailable ? "Available now" : "Unavailable")</span>
+            </div>
+
+            <p>@Model.Description</p>
+
+            <div class="hero-actions">
+                <a asp-controller="Menu" asp-action="GetAll" class="btn btn-outline-dark">Back to menu</a>
+                <form asp-controller="Order" asp-action="AddProduct" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <button type="submit" class="btn btn-dark" @(Model.IsAvailable ? null : "disabled")>Add to cart</button>
+                </form>
+            </div>
+        </div>
+    </section>
+}

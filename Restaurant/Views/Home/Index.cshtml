@@ -1,8 +1,133 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@model Restaurant.Models.HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Home";
+    var heroImage = Model.FeaturedProducts.FirstOrDefault()?.ImageUrl
+        ?? "https://au.ooni.com/cdn/shop/articles/20220211142645-margherita-9920.jpg?v=1737368217&width=1080";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="home-page">
+    <section class="hero-section" style="background-image: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('@heroImage');">
+        <div class="hero-copy">
+            <span class="eyebrow">Fresh kitchen • Daily service</span>
+            <h1>Fresh favorites for lunch, dinner, and everything in between.</h1>
+            <p>
+                From pizza and pasta to desserts and drinks, the full menu is ready for quick browsing and easy ordering.
+            </p>
+            <div class="hero-actions">
+                <a asp-controller="Menu" asp-action="GetAll" class="btn btn-dark btn-lg">Browse Menu</a>
+                <a asp-controller="Reservation" asp-action="Add" class="btn btn-outline-light btn-lg">Book a Table</a>
+            </div>
+        </div>
+        <div class="hero-stats" aria-label="Restaurant highlights">
+            <div class="stat-chip">
+                <strong>@Model.Categories.Count+</strong>
+                <span>featured categories</span>
+            </div>
+            <div class="stat-chip">
+                <strong>@Model.FeaturedProducts.Count+</strong>
+                <span>chef picks</span>
+            </div>
+            <div class="stat-chip">
+                <strong>@Model.Reviews.Count+</strong>
+                <span>recent top reviews</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Featured dishes</span>
+                    <h2>Popular picks from the kitchen</h2>
+                </div>
+                <a asp-controller="Menu" asp-action="GetAll" class="section-link">See full menu</a>
+        </div>
+
+        <div class="product-grid">
+            @foreach (var product in Model.FeaturedProducts)
+            {
+                <article class="menu-card">
+                    <img src="@product.ImageUrl" alt="@product.Name" class="menu-card-image" />
+                    <div class="menu-card-body">
+                        <div class="menu-card-topline">
+                            <span class="menu-badge">@(product.Category?.Name ?? "House special")</span>
+                            <span class="menu-price">@product.Price.ToString("C")</span>
+                        </div>
+                        <h3>@product.Name</h3>
+                        <p>@product.Description</p>
+                        <div class="menu-card-actions">
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline-dark">Details</a>
+                            <form asp-controller="Order" asp-action="AddProduct" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <button type="submit" class="btn btn-dark">Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </section>
+
+    <section class="content-section split-section">
+        <div>
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Categories</span>
+                    <h2>Something for every appetite</h2>
+                </div>
+            </div>
+
+            <div class="category-grid">
+                @foreach (var category in Model.Categories)
+                {
+                    <article class="category-tile">
+                        <img src="@category.IconUrl" alt="@category.Name" class="category-image" />
+                        <div>
+                            <h3>@category.Name</h3>
+                            <p>@(category.Products.Count > 0 ? $"{category.Products.Count} items available" : "Ready to browse")</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+
+        <div>
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Guest feedback</span>
+                    <h2>What guests are saying</h2>
+                </div>
+            </div>
+
+            <div class="review-stack">
+                @foreach (var review in Model.Reviews)
+                {
+                    <article class="review-panel">
+                        <div class="review-panel-top">
+                            <strong>@review.CustomerName</strong>
+                            <span>@review.Rating/5</span>
+                        </div>
+                        <p>@review.Comment</p>
+                        <small>@review.ProductName</small>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section reserve-banner">
+        <div>
+            <span class="eyebrow">Next action</span>
+            <h2>Plan the next meal in a few clicks.</h2>
+            <p>
+                Browse the full menu, review guest favorites, or reserve a table for your next visit.
+            </p>
+        </div>
+        <div class="hero-actions">
+            <a asp-controller="Menu" asp-action="GetAll" class="btn btn-dark btn-lg">Start an order</a>
+            <a asp-controller="Reservation" asp-action="Add" class="btn btn-outline-dark btn-lg">Reserve now</a>
+        </div>
+    </section>
 </div>
