@@ -90,7 +90,7 @@ cd Restaurant-Website
 
 ### 2. Configure the database connection
 
-The default connection string is stored in [Restaurant/appsettings.json](C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/appsettings.json):
+The default connection string is stored in [Restaurant/appsettings.json](Restaurant/appsettings.json):
 
 ```json
 "ConnectionStrings": {
@@ -122,7 +122,7 @@ By default, ASP.NET Core will print the local application URL in the terminal.
 
 ## Payment Configuration
 
-Payment options are configured in [Restaurant/appsettings.json](C:/Users/PC/Documents/GitHub/Restaurant-Website/Restaurant/appsettings.json):
+Payment options are configured in [Restaurant/appsettings.json](Restaurant/appsettings.json):
 
 ```json
 "Payments": {
