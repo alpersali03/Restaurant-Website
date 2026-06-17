@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Restaurant.Data.Models
 {
@@ -9,13 +8,11 @@ namespace Restaurant.Data.Models
         public int Id { get; set; }
 
         [StringLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Required]
-        public string IconUrl { get; set; }
+        public string IconUrl { get; set; } = string.Empty;
 
-        // Navigation: one category has many products
         public ICollection<Product> Products { get; set; } = new List<Product>();
     }
-
 }

@@ -3,44 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\views\\product\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:views\\product\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\views\\product\\getall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:views\\product\\getall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\dtos\\productformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:dtos\\productformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\data\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:data\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|c:\\users\\pc\\documents\\github\\restaurant-website\\restaurant\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3845331-1F25-4E0C-AB9D-422885355FFD}|Restaurant.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -49,9 +33,26 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 213,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-27T12:16:25.115Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -62,133 +63,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetAll.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Product\\GetAll.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\GetAll.cshtml",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Product\\GetAll.cshtml",
-              "RelativeToolTip": "Views\\Product\\GetAll.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAIwBYAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T09:50:20.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Product\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Product\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Product\\Edit.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACkAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T09:49:30.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CategoryDto.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\DTOs\\CategoryDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CategoryDto.cs",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\DTOs\\CategoryDto.cs",
-              "RelativeToolTip": "DTOs\\CategoryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:36:57.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductFormDto.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\DTOs\\ProductFormDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\ProductFormDto.cs",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\DTOs\\ProductFormDto.cs",
-              "RelativeToolTip": "DTOs\\ProductFormDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:31:23.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwB0AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwDMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:05:04.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T05:33:14.218Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Add.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Product\\Add.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\Add.cshtml",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Views\\Product\\Add.cshtml",
-              "RelativeToolTip": "Views\\Product\\Add.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T09:06:32.262Z",
+              "DocumentIndex": 0,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MenuController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "Controllers\\MenuController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T05:31:44.636Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProductDto.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\DTOs\\ProductDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\ProductDto.cs",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\DTOs\\ProductDto.cs",
-              "RelativeToolTip": "DTOs\\ProductDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:36:03.289Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Data\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Data\\Models\\Product.cs",
-              "RelativeToolTip": "Data\\Models\\Product.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwCsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:07:26.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T05:31:44.643Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\ReviewController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReviewController.cs",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\ReviewController.cs",
-              "RelativeToolTip": "Controllers\\ReviewController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:05:02.059Z",
-              "EditorCaption": ""
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-12T15:06:45.444Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ReservationController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\ReservationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReservationController.cs",
-              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Controllers\\ReservationController.cs",
-              "RelativeToolTip": "Controllers\\ReservationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Restaurant-Website\\Restaurant\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAcwGYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:04:48.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T14:36:15.121Z"
             }
           ]
         }

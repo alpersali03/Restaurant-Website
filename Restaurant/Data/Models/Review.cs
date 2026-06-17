@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Restaurant.Data.Models
 {
@@ -6,15 +6,18 @@ namespace Restaurant.Data.Models
     {
         [Key]
         public int Id { get; set; }
+
         [StringLength(100)]
-        public string CustomerName { get; set; }
-        public int Rating { get; set; } 
+        public string CustomerName { get; set; } = string.Empty;
+
+        public int Rating { get; set; }
+
         [StringLength(200)]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = string.Empty;
+
         public DateTime CreatedAt { get; set; }
 
-        public int ProductId { get; set; }             
-        public List<Product> Products { get; set; }    
+        public int ProductId { get; set; }
+        public Product? Product { get; set; }
     }
-
 }

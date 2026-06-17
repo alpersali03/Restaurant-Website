@@ -1,15 +1,12 @@
-﻿using Restaurant.Data.Models;
+using Restaurant.Data.Models;
 
 namespace Restaurant.DTOs
 {
-	public class CategoryFormDto
-	{
-		public int Id { get; set; }
-		public string Name { get; set; }
-		
-		public string IconUrl { get; set; }
-
-		public ICollection<Product> Products { get; set; } = new List<Product>();
-
-	}
+    public class CategoryFormDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string IconUrl { get; set; } = string.Empty;
+        public ICollection<Product> Products { get; set; } = new List<Product>();
+    }
 }

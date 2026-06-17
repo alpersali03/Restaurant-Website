@@ -1,113 +1,77 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Restaurant.Data;
-using Restaurant.Data.Models;
 using Restaurant.DTOs;
+using Restaurant.Services;
 
 namespace Restaurant.Controllers
 {
-	public class ReservationController : Controller
-	{
-		private readonly ApplicationDbContext data;
-		private readonly IMapper _mapper;
-		public ReservationController(ApplicationDbContext data, IMapper mapper)
-		{
-			this.data = data;
-			this._mapper = mapper;
-		}
-		public IActionResult Index()
-		{
-			return View();
-		}
-		[HttpGet]
-		public IActionResult Add()
-		{
-			ReservationFormDto reservationFormDto = new ReservationFormDto();
-			return View(reservationFormDto);
-		}
-		[HttpPost]
-		public IActionResult Add(ReservationFormDto reservationFormDto)
-		{
+    public class ReservationController : Controller
+    {
+        private readonly IReservationService reservationService;
+        private readonly IMapper mapper;
 
-			var reservation = new Reservation();
-			{
-				reservation.Status = (ReservationStatus)reservationFormDto.Status;
-				reservation.Notes = reservationFormDto.Notes;
-				reservation.GuestCount = reservationFormDto.GuestCount;
-				reservation.ReservationDate = reservationFormDto.ReservationDate;
-                reservation.PhoneNumber = reservationFormDto.PhoneNumber;
-                reservation.CustomerName = reservationFormDto.CustomerName;
+        public ReservationController(IReservationService reservationService, IMapper mapper)
+        {
+            this.reservationService = reservationService;
+            this.mapper = mapper;
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View(new ReservationFormDto());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(ReservationFormDto reservationFormDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(reservationFormDto);
             }
 
-			data.Reservations.Add(reservation);
-			data.SaveChanges();
+            reservationService.Add(reservationFormDto);
+            return RedirectToAction(nameof(GetAll));
+        }
 
-			return RedirectToAction("getall");
-		}
-		[HttpGet]
-		public IActionResult Getall()
-		{
-			var reservations = data.Reservations.ToList();
-			var reservationDto = _mapper.Map<List<ReservationFormDto>>(reservations);
-			return View(reservationDto);
-		}
-		[HttpGet]
-		public IActionResult Edit(int id)
-		{
-			var reservation = data.Reservations.FirstOrDefault(r => r.Id == id);
-			if (reservation == null)
-			{
-				return NotFound();
-			}
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return View(reservationService.GetAll());
+        }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var reservation = reservationService.GetById(id);
+            if (reservation == null)
+            {
+                return NotFound();
+            }
 
-			var reservationDto = _mapper.Map<ReservationFormDto>(reservation);
+            return View(mapper.Map<ReservationFormDto>(reservation));
+        }
 
-			return View(reservationDto);
-		}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(ReservationFormDto reservationFormDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(reservationFormDto);
+            }
 
-		[HttpPost]
-		public IActionResult Edit(ReservationFormDto reservationFromDto)
-		{
-			if (!ModelState.IsValid)
-			{
-				return View(reservationFromDto);
-			}
+            reservationService.Edit(mapper.Map<ReservationDto>(reservationFormDto));
+            return RedirectToAction(nameof(GetAll));
+        }
 
-			var reservation = data.Reservations.FirstOrDefault(r => r.Id == reservationFromDto.Id);
-			if (reservation == null)
-			{
-				return NotFound();
-			}
-
-			reservation.Status = (ReservationStatus)reservationFromDto.Status;
-			reservation.Notes = reservationFromDto.Notes;
-			reservation.GuestCount = reservationFromDto.GuestCount;
-			reservation.ReservationDate = reservationFromDto.ReservationDate;
-            reservation.PhoneNumber = reservationFromDto.PhoneNumber;
-            reservation.CustomerName = reservationFromDto.CustomerName;
-
-            data.SaveChanges();
-
-			return RedirectToAction(nameof(Index));
-		}
-
-
-		[HttpPost]
-		public IActionResult Delete(int id)
-		{
-			var reservation = data.Reservations.FirstOrDefault(r => r.Id == id);
-			if (reservation == null)
-			{
-				return NotFound();
-			}
-
-
-
-			data.Reservations.Remove(reservation);
-			data.SaveChanges();
-
-			return RedirectToAction(nameof(Index));
-		}
-	}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            reservationService.Delete(id);
+            return RedirectToAction(nameof(GetAll));
+        }
+    }
 }

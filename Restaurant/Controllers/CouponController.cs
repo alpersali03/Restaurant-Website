@@ -1,71 +1,60 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Restaurant.Data;
-using Restaurant.Data.Models;
 using Restaurant.DTOs;
-using System.Linq;
+using Restaurant.Services;
 
 namespace Restaurant.Controllers
 {
     public class CouponController : Controller
     {
-        private readonly ApplicationDbContext data;
-        private readonly IMapper _mapper;
-        public CouponController(ApplicationDbContext data, IMapper mapper)
-        {
-            this.data = data;
-            this._mapper = mapper;
-        }
+        private readonly ICouponService couponService;
+        private readonly IMapper mapper;
 
+        public CouponController(ICouponService couponService, IMapper mapper)
+        {
+            this.couponService = couponService;
+            this.mapper = mapper;
+        }
 
         [HttpGet]
         public IActionResult Add()
         {
-            CouponFormDto couponFormDto = new CouponFormDto();
-            return View(couponFormDto);
+            return View(new CouponFormDto());
         }
 
-        
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Add(CouponFormDto couponFormDto)
         {
-
-            var coupon = new Coupon
+            if (!ModelState.IsValid)
             {
-                Percentage = (PercentageRate)couponFormDto.Percentage,
-                StartDate = couponFormDto.StartDate,
-                EndDate = couponFormDto.EndDate,
-                Code = couponFormDto.Code
-            };
+                return View(couponFormDto);
+            }
 
-            data.Coupons.Add(coupon);
-            data.SaveChanges();
-
-            return RedirectToAction("getall");
+            couponService.Add(couponFormDto);
+            return RedirectToAction(nameof(GetAll));
         }
+
         [HttpGet]
-        public IActionResult Getall()
+        public IActionResult GetAll()
         {
-            var coupons = data.Coupons.ToList();
-            var couponDto = _mapper.Map<List<CouponFormDto>>(coupons);
-            return View(couponDto);
+            return View(couponService.GetAll());
         }
+
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var coupon = data.Coupons.FirstOrDefault(c => c.Id == id);
+            var coupon = couponService.GetById(id);
             if (coupon == null)
             {
                 return NotFound();
             }
 
-            
-            var dto = _mapper.Map<CouponFormDto>(coupon);
-            
-            return View(dto);
+            return View(mapper.Map<CouponFormDto>(coupon));
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(CouponFormDto model)
         {
             if (!ModelState.IsValid)
@@ -73,38 +62,24 @@ namespace Restaurant.Controllers
                 return View(model);
             }
 
-            var coupon = data.Coupons.FirstOrDefault(c => c.Id == model.Id);
-            if (coupon == null)
+            couponService.Edit(new CouponDto
             {
-                return NotFound();
-            }
+                Id = model.Id,
+                Code = model.Code,
+                Percentage = (Data.Models.PercentageRate)model.Percentage,
+                StartDate = model.StartDate,
+                EndDate = model.EndDate
+            });
 
-            coupon.Percentage = (PercentageRate)model.Percentage;
-            coupon.StartDate = model.StartDate;
-            coupon.EndDate = model.EndDate;
-            coupon.Code = model.Code;
-
-            data.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(GetAll));
         }
 
-        
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var coupon = data.Coupons.FirstOrDefault(c => c.Id == id);
-            if (coupon == null)
-            {
-                return NotFound();
-            }
-
-           
-
-            data.Coupons.Remove(coupon);
-            data.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
+            couponService.Delete(id);
+            return RedirectToAction(nameof(GetAll));
         }
     }
 }

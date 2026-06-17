@@ -33,7 +33,24 @@ namespace Restaurant.Data
                     .WithMany()
                     .HasForeignKey(o => o.IdentityUserId)
                     .OnDelete(DeleteBehavior.Restrict);
-              
+
+            builder.Entity<Order>()
+                .Property(o => o.TotalAmount)
+                .HasPrecision(18, 2);
+
+            builder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasPrecision(18, 2);
+
+            builder.Entity<Payment>()
+                .Property(p => p.Amount)
+                .HasPrecision(18, 2);
+
+            builder.Entity<Review>()
+                .HasOne(review => review.Product)
+                .WithMany()
+                .HasForeignKey(review => review.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Category>().HasData(
 				new Category { Id = 1, Name = "Pizza", IconUrl = "https://uk.ooni.com/cdn/shop/articles/20220211142645-margherita-9920_e41233d5-dcec-461c-b07e-03245f031dfe.jpg?v=1737105431&width=1080" },
@@ -89,16 +106,16 @@ namespace Restaurant.Data
             );
 
             builder.Entity<Review>().HasData(
-                new Review { Id = 1, CustomerName = "John", Rating = 5, Comment = "Amazing flavor!", CreatedAt = DateTime.Now },
-                new Review { Id = 2, CustomerName = "Emily", Rating = 4, Comment = "Great taste but a bit salty.", CreatedAt = DateTime.Now },
-                new Review { Id = 3, CustomerName = "Michael", Rating = 3, Comment = "Average meal.", CreatedAt = DateTime.Now },
-                new Review { Id = 4, CustomerName = "Sophia", Rating = 5, Comment = "Absolutely loved it!", CreatedAt = DateTime.Now },
-                new Review { Id = 5, CustomerName = "David", Rating = 2, Comment = "Not what I expected.", CreatedAt = DateTime.Now },
-                new Review { Id = 6, CustomerName = "Olivia", Rating = 4, Comment = "Tasty and well presented.", CreatedAt = DateTime.Now },
-                new Review { Id = 7, CustomerName = "James", Rating = 5, Comment = "Top quality!", CreatedAt = DateTime.Now },
-                new Review { Id = 8, CustomerName = "Ava", Rating = 3, Comment = "It was okay.", CreatedAt = DateTime.Now },
-                new Review { Id = 9, CustomerName = "William", Rating = 4, Comment = "Quick service, nice meal.", CreatedAt = DateTime.Now },
-                new Review { Id = 10, CustomerName = "Emma", Rating = 5, Comment = "Best burger I've had!", CreatedAt = DateTime.Now }
+                new Review { Id = 1, CustomerName = "John", Rating = 5, Comment = "Amazing flavor!", CreatedAt = DateTime.Now, ProductId = 1 },
+                new Review { Id = 2, CustomerName = "Emily", Rating = 4, Comment = "Great taste but a bit salty.", CreatedAt = DateTime.Now, ProductId = 2 },
+                new Review { Id = 3, CustomerName = "Michael", Rating = 3, Comment = "Average meal.", CreatedAt = DateTime.Now, ProductId = 3 },
+                new Review { Id = 4, CustomerName = "Sophia", Rating = 5, Comment = "Absolutely loved it!", CreatedAt = DateTime.Now, ProductId = 4 },
+                new Review { Id = 5, CustomerName = "David", Rating = 2, Comment = "Not what I expected.", CreatedAt = DateTime.Now, ProductId = 5 },
+                new Review { Id = 6, CustomerName = "Olivia", Rating = 4, Comment = "Tasty and well presented.", CreatedAt = DateTime.Now, ProductId = 6 },
+                new Review { Id = 7, CustomerName = "James", Rating = 5, Comment = "Top quality!", CreatedAt = DateTime.Now, ProductId = 7 },
+                new Review { Id = 8, CustomerName = "Ava", Rating = 3, Comment = "It was okay.", CreatedAt = DateTime.Now, ProductId = 8 },
+                new Review { Id = 9, CustomerName = "William", Rating = 4, Comment = "Quick service, nice meal.", CreatedAt = DateTime.Now, ProductId = 9 },
+                new Review { Id = 10, CustomerName = "Emma", Rating = 5, Comment = "Best burger I've had!", CreatedAt = DateTime.Now, ProductId = 10 }
             );
 
 

@@ -1,61 +1,64 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Restaurant.Data;
-using Restaurant.Data.Models;
 using Restaurant.DTOs;
 using Restaurant.Services;
 
 namespace Restaurant.Controllers
 {
-	//[Authorize]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext data;
-        private readonly IMapper _mapper;	
-		private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
+        private readonly ICategoryService _categoryService;
         private readonly IProductService _productService;
 
-        public ProductController(ApplicationDbContext data, IMapper mapper, ICategoryService categoryService, IProductService productService)
+        public ProductController(
+            ApplicationDbContext data,
+            IMapper mapper,
+            ICategoryService categoryService,
+            IProductService productService)
         {
             this.data = data;
             this._mapper = mapper;
-			this._categoryService = categoryService;
+            this._categoryService = categoryService;
             this._productService = productService;
         }
-		[HttpGet]
-		public IActionResult Add()
-		{
-			ProductFormDto productFormDto = new ProductFormDto();
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ProductFormDto productFormDto = new ProductFormDto();
             productFormDto.Categories = _categoryService.GetAll();
-			return View(productFormDto);
+            return View(productFormDto);
+        }
 
-		}
-		[HttpPost]
-		public IActionResult Add(ProductFormDto productFormDto)
-		{
-			if (string.IsNullOrEmpty(productFormDto.Name) || string.IsNullOrEmpty(productFormDto.Description))
-			{
-				throw new Exception("The category already exists");
-			}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(ProductFormDto productFormDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                productFormDto.Categories = _categoryService.GetAll();
+                return View(productFormDto);
+            }
 
-			_productService.Add(productFormDto);
-			return RedirectToAction("GetAll");
-		}
-		[HttpGet]
-        public IActionResult Getall()
+            _productService.Add(productFormDto);
+            return RedirectToAction("GetAll");
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
         {
             var products = _productService.GetAll();
-            
             return View(products);
         }
+
         [HttpGet]
         public IActionResult Edit(int id)
         {
             var product = this.data.Products.FirstOrDefault(p => p.Id == id);
-            
+
             if (product == null)
             {
                 return NotFound();
@@ -66,7 +69,9 @@ namespace Restaurant.Controllers
 
             return View(productDto);
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductFormDto product)
         {
             var existingProduct = this.data.Products.FirstOrDefault(c => c.Id == product.Id);
@@ -78,7 +83,6 @@ namespace Restaurant.Controllers
 
             if (!ModelState.IsValid)
             {
-                
                 product.Categories = _categoryService.GetAll();
                 return View(product);
             }
@@ -93,21 +97,25 @@ namespace Restaurant.Controllers
             data.SaveChanges();
             return RedirectToAction("GetAll");
         }
-		[HttpGet]
-		public IActionResult Details(int id)
-		{
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
             var product = _productService.GetDetails(id);
-			return View(product);
-		}
+            if (product == null)
+            {
+                return NotFound();
+            }
 
-		[HttpGet]
-		public IActionResult Delete(int id)
-		{
-			_productService.Delete(id);
-            return RedirectToAction("getall");
+            return View(product);
+        }
 
-		}
-
-	}
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            _productService.Delete(id);
+            return RedirectToAction("GetAll");
+        }
+    }
 }

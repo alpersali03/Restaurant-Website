@@ -9,7 +9,7 @@
 
 @if (Model.OrderItems == null || !Model.OrderItems.Any())
 {
-    <p>Your cart is empty.</p>
+    <h1>Your cart is empty.</h1>
 }
 else
 {
@@ -29,16 +29,19 @@ else
             {
                 <tr>
                     <td>
-                        <img src="@item.Product.ImageUrl" alt="@item.Product.Name" width="100" />
+                        <img src="@item.Product?.ImageUrl" alt="@item.Product?.Name" width="100" />
                     </td>
-                    <td>@item.Product.Name</td>
+                    <td>@item.Product?.Name</td>
                     <td>@item.Quantity</td>
-                    <td>@item.Product.Price.ToString("C")</td>
-                    <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
+                    <td>@((item.Product?.Price ?? 0m).ToString("C"))</td>
+                    <td>@(((item.Product?.Price ?? 0m) * item.Quantity).ToString("C"))</td>
                     <td>
                         <form asp-action="RemoveItem" method="post">
+                            @Html.AntiForgeryToken()
                             <input type="hidden" name="orderItemId" value="@item.Id" />
                             <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                            <button type="submit" name="change" value="increase" class="btn btn-sm btn-success">+</button>
+                            <button type="submit" name="change" value="decrease" class="btn btn-sm btn-warning">-</button>
                         </form>
                     </td>
                 </tr>

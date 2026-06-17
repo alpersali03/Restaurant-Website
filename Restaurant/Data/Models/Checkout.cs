@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Restaurant.Data.Models
 {
@@ -8,24 +8,17 @@ namespace Restaurant.Data.Models
 
         [Required]
         public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
 
         [Required]
-        public string FullName { get; set; }
+        public string FullName { get; set; } = string.Empty;
 
         [Required, EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required]
-        public string Address { get; set; }
+        public string Address { get; set; } = string.Empty;
 
-        [Required, CreditCard]
-        public string CardNumber { get; set; }
-
-        [Required]
-        public string ExpirationDate { get; set; }
-
-        [Required]
-        public string CVV { get; set; }
+        public string CouponCode { get; set; } = string.Empty;
     }
 }

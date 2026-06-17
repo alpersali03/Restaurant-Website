@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Restaurant.Data.Models
 {
@@ -6,12 +6,17 @@ namespace Restaurant.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime PaidAt { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+        public DateTime? CompletedAt { get; set; }
         public decimal Amount { get; set; }
-        public PaymentMethod Method { get; set; } // Enum: Cash, CreditCard, Online
+        public string Currency { get; set; } = "usd";
+        public string Provider { get; set; } = string.Empty;
+        public string ProviderSessionId { get; set; } = string.Empty;
+        public string? ProviderPaymentId { get; set; }
+        public PaymentStatus Status { get; set; }
 
         public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
     }
-
 }

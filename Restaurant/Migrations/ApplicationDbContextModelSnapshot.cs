@@ -249,63 +249,97 @@ namespace Restaurant.Migrations
                         new
                         {
                             Id = 1,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1404/1404945.png",
+                            IconUrl = "https://uk.ooni.com/cdn/shop/articles/20220211142645-margherita-9920_e41233d5-dcec-461c-b07e-03245f031dfe.jpg?v=1737105431&width=1080",
                             Name = "Pizza"
                         },
                         new
                         {
                             Id = 2,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046784.png",
+                            IconUrl = "https://www.brit.co/media-library/3-ingredient-dessert-recipes.jpg?id=23305200&width=400&height=493",
                             Name = "Desserts"
                         },
                         new
                         {
                             Id = 3,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
+                            IconUrl = "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-802667754.jpg?c=original",
                             Name = "Drinks"
                         },
                         new
                         {
                             Id = 4,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046795.png",
+                            IconUrl = "https://cdn.loveandlemons.com/wp-content/uploads/2019/07/salad.jpg",
                             Name = "Salads"
                         },
                         new
                         {
                             Id = 5,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1404/1404948.png",
+                            IconUrl = "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2023-01-Caramelized-Tomato-Paste-Pasta%2F06-CARAMELIZED-TOMATO-PASTE-PASTA-039",
                             Name = "Pasta"
                         },
                         new
                         {
                             Id = 6,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046803.png",
+                            IconUrl = "https://www.seriouseats.com/thmb/DvSDZoMw8WSOQFAMgf3L2wlfY9Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/053123_TomatoSoup-MPPSoupsAndStews-Morgan-Hunt-Glaze-f59a081d7efb4625a75a1a907a6b1cbf.jpg",
                             Name = "Soups"
                         },
                         new
                         {
                             Id = 7,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046790.png",
+                            IconUrl = "https://www.rewardsnetwork.com/wp-content/uploads/2015/09/Appetizer_Main1.jpg",
                             Name = "Snacks"
                         },
                         new
                         {
                             Id = 8,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046841.png",
+                            IconUrl = "https://mayavegetarian.com.au/wp-content/uploads/2023/05/vegetarian-friendly-restaurants.jpeg",
                             Name = "Vegetarian"
                         },
                         new
                         {
                             Id = 9,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1046/1046779.png",
+                            IconUrl = "https://img.delicious.com.au/zwzzSNao/del/2018/08/chilli-labneh-eggs-87071-2.jpg",
                             Name = "Breakfast"
                         },
                         new
                         {
                             Id = 10,
-                            IconUrl = "https://cdn-icons-png.flaticon.com/512/1404/1404942.png",
+                            IconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc2ZGUC_fUddSOkKcQOx390f_ZvEuHQDnDzw&s",
                             Name = "Burgers"
                         });
+                });
+
+            modelBuilder.Entity("Restaurant.Data.Models.Checkout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CouponCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Checkouts");
                 });
 
             modelBuilder.Entity("Restaurant.Data.Models.Coupon", b =>
@@ -338,81 +372,81 @@ namespace Restaurant.Migrations
                         {
                             Id = 1,
                             Code = "HELLO2025",
-                            EndDate = new DateTime(2025, 9, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 6, 5, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 2,
                             Code = "HELLOSUMMER",
-                            EndDate = new DateTime(2025, 9, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 15, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 3,
                             Code = "WELCOME",
-                            EndDate = new DateTime(2025, 9, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 6, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 4,
                             Code = "BIGDISCOUNT",
-                            EndDate = new DateTime(2025, 9, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 20, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 5,
                             Code = "BESTPLACE",
-                            EndDate = new DateTime(2025, 10, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 7, 5, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 6,
                             Code = "MEMORIES",
-                            EndDate = new DateTime(2025, 8, 30, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 7,
                             Code = "HAVEFUN25",
-                            EndDate = new DateTime(2025, 9, 1, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 12, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 8,
                             Code = "ANNIVERSARRY",
-                            EndDate = new DateTime(2025, 9, 14, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 25, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 9,
                             Code = "LETSDRINK",
-                            EndDate = new DateTime(2025, 9, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 20, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 10,
                             Code = "LETSEAT",
-                            EndDate = new DateTime(2025, 9, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            EndDate = new DateTime(2026, 5, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Percentage = 5,
-                            StartDate = new DateTime(2025, 8, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            StartDate = new DateTime(2026, 5, 5, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
@@ -423,6 +457,9 @@ namespace Restaurant.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CouponId")
+                        .HasColumnType("int");
 
                     b.Property<string>("IdentityUserId")
                         .IsRequired()
@@ -438,9 +475,12 @@ namespace Restaurant.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalAmount")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CouponId");
 
                     b.HasIndex("IdentityUserId");
 
@@ -482,16 +522,35 @@ namespace Restaurant.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Method")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PaidAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Provider")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderPaymentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderSessionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -529,16 +588,12 @@ namespace Restaurant.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("ReviewId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("ReviewId");
 
                     b.ToTable("Products");
 
@@ -548,7 +603,7 @@ namespace Restaurant.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Description = "Classic tomato, mozzarella, and basil pizza.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?margherita,pizza",
+                            ImageUrl = "https://au.ooni.com/cdn/shop/articles/20220211142645-margherita-9920.jpg?v=1737368217&width=1080",
                             IsAvailable = true,
                             Name = "Margherita",
                             Price = 49.90m
@@ -558,7 +613,7 @@ namespace Restaurant.Migrations
                             Id = 2,
                             CategoryId = 2,
                             Description = "Sweet pizza topped with Nutella and fruits.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?nutella,dessert",
+                            ImageUrl = "https://img.kidspot.com.au/XiAtfaQM/w1200-h1200-cfill-q80/kk/2015/03/nutella-pizza-613255-1.jpg",
                             IsAvailable = true,
                             Name = "Nutella Pizza",
                             Price = 59.90m
@@ -568,7 +623,7 @@ namespace Restaurant.Migrations
                             Id = 3,
                             CategoryId = 3,
                             Description = "330ml cold soft drink.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?coca-cola,drink",
+                            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0UPl7dUxzEE3cPX_reTIxFPHAlH3bybJzpw&s",
                             IsAvailable = true,
                             Name = "Coca-Cola",
                             Price = 9.90m
@@ -578,7 +633,7 @@ namespace Restaurant.Migrations
                             Id = 4,
                             CategoryId = 4,
                             Description = "Chicken, croutons, and parmesan.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?caesar,salad",
+                            ImageUrl = "https://cdn.loveandlemons.com/wp-content/uploads/2024/12/caesar-salad.jpg",
                             IsAvailable = true,
                             Name = "Caesar Salad",
                             Price = 38.50m
@@ -588,7 +643,7 @@ namespace Restaurant.Migrations
                             Id = 5,
                             CategoryId = 5,
                             Description = "Spicy tomato pasta.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?penne,pasta",
+                            ImageUrl = "https://tastesbetterfromscratch.com/wp-content/uploads/2020/03/Penne-Arrabbiata-1-2.jpg",
                             IsAvailable = true,
                             Name = "Penne Arrabbiata",
                             Price = 42.00m
@@ -598,7 +653,7 @@ namespace Restaurant.Migrations
                             Id = 6,
                             CategoryId = 6,
                             Description = "Traditional Turkish red lentil soup.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?lentil,soup",
+                            ImageUrl = "https://www.allrecipes.com/thmb/mVE0x7bzey6DPJFBBXDoI_rBrkw=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/13978-lentil-soup-DDMFS-4x3-edfa47fc6b234e6b8add24d44c036d43.jpg",
                             IsAvailable = true,
                             Name = "Lentil Soup",
                             Price = 19.00m
@@ -608,7 +663,7 @@ namespace Restaurant.Migrations
                             Id = 7,
                             CategoryId = 7,
                             Description = "Deep-fried mozzarella cheese.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?mozzarella,snacks",
+                            ImageUrl = "https://easyweeknightrecipes.com/wp-content/uploads/2024/04/Mozzarella-Sticks_0013.jpg",
                             IsAvailable = true,
                             Name = "Mozzarella Sticks",
                             Price = 27.00m
@@ -618,7 +673,7 @@ namespace Restaurant.Migrations
                             Id = 8,
                             CategoryId = 8,
                             Description = "Oven-roasted seasonal vegetables.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?vegetable,meal",
+                            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2iaZmOJeWFbNHXjZrdFA5i_rDG-3R-gSsxg&s",
                             IsAvailable = true,
                             Name = "Vegetable Casserole",
                             Price = 35.00m
@@ -628,7 +683,7 @@ namespace Restaurant.Migrations
                             Id = 9,
                             CategoryId = 9,
                             Description = "Traditional Turkish breakfast assortment.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?breakfast,food",
+                            ImageUrl = "https://catering.soulorigin.com.au/cdn/shop/files/240617_1.png?v=1729728953",
                             IsAvailable = true,
                             Name = "Breakfast Platter",
                             Price = 69.00m
@@ -638,7 +693,7 @@ namespace Restaurant.Migrations
                             Id = 10,
                             CategoryId = 10,
                             Description = "Beef patty with cheddar cheese.",
-                            ImageUrl = "https://source.unsplash.com/600x400/?cheeseburger",
+                            ImageUrl = "https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipemediafiles/recipe%20images%20and%20files/retail/desktop%20(600x600)/2024.march/2024_retail_double-stack-cheeseburger_600x600.jpg?ext=.jpg",
                             IsAvailable = true,
                             Name = "Cheeseburger",
                             Price = 48.00m
@@ -689,7 +744,7 @@ namespace Restaurant.Migrations
                             GuestCount = 2,
                             Notes = "Window seat",
                             PhoneNumber = "5551234567",
-                            ReservationDate = new DateTime(2025, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 1
                         },
                         new
@@ -699,7 +754,7 @@ namespace Restaurant.Migrations
                             GuestCount = 4,
                             Notes = "",
                             PhoneNumber = "5552345678",
-                            ReservationDate = new DateTime(2025, 8, 25, 18, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 5, 18, 0, 0, 0, DateTimeKind.Local),
                             Status = 0
                         },
                         new
@@ -709,7 +764,7 @@ namespace Restaurant.Migrations
                             GuestCount = 3,
                             Notes = "Birthday celebration",
                             PhoneNumber = "5553456789",
-                            ReservationDate = new DateTime(2025, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 1
                         },
                         new
@@ -719,7 +774,7 @@ namespace Restaurant.Migrations
                             GuestCount = 5,
                             Notes = "",
                             PhoneNumber = "5554567890",
-                            ReservationDate = new DateTime(2025, 8, 28, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 0
                         },
                         new
@@ -729,7 +784,7 @@ namespace Restaurant.Migrations
                             GuestCount = 2,
                             Notes = "Romantic table",
                             PhoneNumber = "5555678901",
-                            ReservationDate = new DateTime(2025, 8, 25, 21, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 5, 21, 0, 0, 0, DateTimeKind.Local),
                             Status = 1
                         },
                         new
@@ -739,7 +794,7 @@ namespace Restaurant.Migrations
                             GuestCount = 6,
                             Notes = "",
                             PhoneNumber = "5556789012",
-                            ReservationDate = new DateTime(2025, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 2
                         },
                         new
@@ -749,7 +804,7 @@ namespace Restaurant.Migrations
                             GuestCount = 3,
                             Notes = "Non-smoking area",
                             PhoneNumber = "5557890123",
-                            ReservationDate = new DateTime(2025, 8, 25, 19, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 5, 19, 0, 0, 0, DateTimeKind.Local),
                             Status = 1
                         },
                         new
@@ -759,7 +814,7 @@ namespace Restaurant.Migrations
                             GuestCount = 1,
                             Notes = "",
                             PhoneNumber = "5558901234",
-                            ReservationDate = new DateTime(2025, 8, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 9, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 0
                         },
                         new
@@ -769,7 +824,7 @@ namespace Restaurant.Migrations
                             GuestCount = 2,
                             Notes = "",
                             PhoneNumber = "5559012345",
-                            ReservationDate = new DateTime(2025, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 1
                         },
                         new
@@ -779,7 +834,7 @@ namespace Restaurant.Migrations
                             GuestCount = 4,
                             Notes = "Birthday dinner",
                             PhoneNumber = "5550123456",
-                            ReservationDate = new DateTime(2025, 8, 30, 0, 0, 0, 0, DateTimeKind.Local),
+                            ReservationDate = new DateTime(2026, 5, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             Status = 0
                         });
                 });
@@ -813,6 +868,8 @@ namespace Restaurant.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductId");
+
                     b.ToTable("Reviews");
 
                     b.HasData(
@@ -820,90 +877,90 @@ namespace Restaurant.Migrations
                         {
                             Id = 1,
                             Comment = "Amazing flavor!",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(727),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1987),
                             CustomerName = "John",
-                            ProductId = 0,
+                            ProductId = 1,
                             Rating = 5
                         },
                         new
                         {
                             Id = 2,
                             Comment = "Great taste but a bit salty.",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(729),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1990),
                             CustomerName = "Emily",
-                            ProductId = 0,
+                            ProductId = 2,
                             Rating = 4
                         },
                         new
                         {
                             Id = 3,
                             Comment = "Average meal.",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(731),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1991),
                             CustomerName = "Michael",
-                            ProductId = 0,
+                            ProductId = 3,
                             Rating = 3
                         },
                         new
                         {
                             Id = 4,
                             Comment = "Absolutely loved it!",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(733),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1993),
                             CustomerName = "Sophia",
-                            ProductId = 0,
+                            ProductId = 4,
                             Rating = 5
                         },
                         new
                         {
                             Id = 5,
                             Comment = "Not what I expected.",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(735),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1995),
                             CustomerName = "David",
-                            ProductId = 0,
+                            ProductId = 5,
                             Rating = 2
                         },
                         new
                         {
                             Id = 6,
                             Comment = "Tasty and well presented.",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(736),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1997),
                             CustomerName = "Olivia",
-                            ProductId = 0,
+                            ProductId = 6,
                             Rating = 4
                         },
                         new
                         {
                             Id = 7,
                             Comment = "Top quality!",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(738),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(1999),
                             CustomerName = "James",
-                            ProductId = 0,
+                            ProductId = 7,
                             Rating = 5
                         },
                         new
                         {
                             Id = 8,
                             Comment = "It was okay.",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(739),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(2001),
                             CustomerName = "Ava",
-                            ProductId = 0,
+                            ProductId = 8,
                             Rating = 3
                         },
                         new
                         {
                             Id = 9,
                             Comment = "Quick service, nice meal.",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(741),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(2003),
                             CustomerName = "William",
-                            ProductId = 0,
+                            ProductId = 9,
                             Rating = 4
                         },
                         new
                         {
                             Id = 10,
                             Comment = "Best burger I've had!",
-                            CreatedAt = new DateTime(2025, 8, 25, 11, 42, 5, 49, DateTimeKind.Local).AddTicks(743),
+                            CreatedAt = new DateTime(2026, 5, 5, 8, 52, 4, 472, DateTimeKind.Local).AddTicks(2004),
                             CustomerName = "Emma",
-                            ProductId = 0,
+                            ProductId = 10,
                             Rating = 5
                         });
                 });
@@ -959,13 +1016,30 @@ namespace Restaurant.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Restaurant.Data.Models.Checkout", b =>
+                {
+                    b.HasOne("Restaurant.Data.Models.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Restaurant.Data.Models.Order", b =>
                 {
+                    b.HasOne("Restaurant.Data.Models.Coupon", "Coupon")
+                        .WithMany()
+                        .HasForeignKey("CouponId");
+
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
                         .HasForeignKey("IdentityUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Coupon");
 
                     b.Navigation("IdentityUser");
                 });
@@ -1008,11 +1082,18 @@ namespace Restaurant.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Restaurant.Data.Models.Review", null)
-                        .WithMany("Products")
-                        .HasForeignKey("ReviewId");
-
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Restaurant.Data.Models.Review", b =>
+                {
+                    b.HasOne("Restaurant.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Restaurant.Data.Models.Category", b =>
@@ -1028,11 +1109,6 @@ namespace Restaurant.Migrations
             modelBuilder.Entity("Restaurant.Data.Models.Product", b =>
                 {
                     b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Restaurant.Data.Models.Review", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,135 +1,76 @@
-﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Restaurant.Data;
-using Restaurant.Data.Models;
 using Restaurant.DTOs;
+using Restaurant.Services;
 
 namespace Restaurant.Controllers
 {
     public class ReviewController : Controller
     {
-        private readonly ApplicationDbContext data;
-        private readonly IMapper _mapper;
+        private readonly IReviewService reviewService;
 
-        public ReviewController(ApplicationDbContext data, IMapper mapper)
+        public ReviewController(IReviewService reviewService)
         {
-            this.data = data;
-            this._mapper = mapper;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
+            this.reviewService = reviewService;
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            var reviewFormDto = new ReviewFormDto
-            {
-                Products = data.Products.ToList()
-            };
-
-            return View(reviewFormDto);
+            return View(reviewService.BuildCreateModel());
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Add(ReviewFormDto reviewFormDto)
         {
             if (!ModelState.IsValid)
             {
-                reviewFormDto.Products = data.Products.ToList();
+                reviewFormDto.Products = reviewService.BuildCreateModel().Products;
                 return View(reviewFormDto);
             }
 
-            var product = data.Products.FirstOrDefault(p => p.Id == reviewFormDto.ProductId);
-            if (product == null)
-            {
-                return NotFound("Selected product not found.");
-            }
-
-            var review = new Review
-            {
-                CustomerName = reviewFormDto.CustomerName,
-                Rating = reviewFormDto.Rating,
-                Comment = reviewFormDto.Comment,
-                CreatedAt = reviewFormDto.CreatedAt,
-                ProductId = product.Id
-            };
-
-            data.Reviews.Add(review);
-            data.SaveChanges();
-
-            return RedirectToAction("GetAll");
+            reviewService.Add(reviewFormDto);
+            return RedirectToAction(nameof(GetAll));
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var reviews = data.Reviews
-                .Include(r => r.Products)
-                .ToList();
-
-            var reviewDtos = _mapper.Map<List<ReviewFormDto>>(reviews);
-            return View(reviewDtos);
+            return View(reviewService.GetAll());
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var review = data.Reviews.FirstOrDefault(r => r.Id == id);
-            if (review == null)
+            var dto = reviewService.BuildEditModel(id);
+            if (dto == null)
             {
                 return NotFound();
             }
-
-            var dto = _mapper.Map<ReviewFormDto>(review);
-            dto.Products = data.Products.ToList();
 
             return View(dto);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(ReviewFormDto reviewFormDto)
         {
-            var existingReview = data.Reviews.FirstOrDefault(r => r.Id == reviewFormDto.Id);
-
-            if (existingReview == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                reviewFormDto.Products = reviewService.BuildCreateModel().Products;
+                return View(reviewFormDto);
             }
 
-            var product = data.Products.FirstOrDefault(p => p.Id == reviewFormDto.ProductId);
-            if (product == null)
-            {
-                return NotFound("Selected product not found.");
-            }
-
-            existingReview.CustomerName = reviewFormDto.CustomerName;
-            existingReview.Comment = reviewFormDto.Comment;
-            existingReview.Rating = reviewFormDto.Rating;
-            existingReview.CreatedAt = reviewFormDto.CreatedAt;
-            existingReview.ProductId = product.Id;
-
-            data.SaveChanges();
-
-            return RedirectToAction("GetAll");
+            reviewService.Edit(reviewFormDto);
+            return RedirectToAction(nameof(GetAll));
         }
 
-        [HttpGet]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var deletingReview = data.Reviews.FirstOrDefault(r => r.Id == id);
-            if (deletingReview == null)
-            {
-                return NotFound();
-            }
-
-            data.Reviews.Remove(deletingReview);
-            data.SaveChanges();
-
-            return RedirectToAction("GetAll");
+            reviewService.Delete(id);
+            return RedirectToAction(nameof(GetAll));
         }
     }
 }
